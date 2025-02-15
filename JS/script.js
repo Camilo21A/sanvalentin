@@ -1,25 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const corazonesContainer = document.querySelector(".corazones-container");
+    const heartsContainer = document.querySelector(".hearts-container");
     const botonNo = document.getElementById("botonNo");
     const botonSi = document.getElementById("botonSi");
     const descargar = document.getElementById("descargar");
 
     // Ocultar el botón de descarga al principio
-    descargar.style.display = "none";
+     descargar.style.display = "none";
 
     // Función para crear corazones
     function createHeart() {
-        const corazon = document.createElement("div");
-        corazon.classList.add("corazon");
-        corazon.innerHTML = "❤️";
-        corazon.style.left = Math.random() * 100 + "vw"; // Estilo de posición horizontal aleatoria
-        corazon.style.animationDuration = (Math.random() * 2 + 3) + "s"; // Duración de la animación
-        corazon.style.fontSize = (Math.random() * 20 + 10) + "px"; // Tamaño de la fuente aleatorio
-        corazonesContainer.appendChild(corazon);
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        heartsContainer.appendChild(heart);
 
-        // Eliminar el corazón después de 5 segundos
         setTimeout(() => {
-            corazon.remove();
+            heart.remove();
         }, 5000);
     }
 
@@ -28,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Evento cuando el ratón pasa por encima del botón "No"
     botonNo.addEventListener("mouseover", function () {
-        const maxX = window.innerWidth - botonNo.offsetWidth - 20;
-        const maxY = window.innerHeight - botonNo.offsetHeight - 20;
+        const maxX = window.innerWidth - botonNo.offsetWidth - 20; 
+        const maxY = window.innerHeight - botonNo.offsetHeight - 20; 
 
         let x, y;
 
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             x = Math.random() * maxX;
             y = Math.random() * maxY;
         } while (
-            Math.abs(x - botonSi.offsetLeft) < 100 &&
+            Math.abs(x - botonSi.offsetLeft) < 100 && 
             Math.abs(y - botonSi.offsetTop) < 50
         );
 
